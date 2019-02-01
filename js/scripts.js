@@ -1,11 +1,29 @@
+function Pizza(size) {
+	this.size = size;
+	// this.toppings = toppingsArray;
+	this.price = this.getPrice();
+}
+
+Pizza.prototype.getPrice = function() {
+	console.log(this.size);
+	if (this.size === 'sm') {
+		return 10;
+	} else if (this.size === 'md') {
+		return 14;
+	} else {
+		return 16;
+	}
+}
+
+
+
+
 $(function(){
-	// $("#pizza-submit").submit(function(event){
-	// 	var sizeInput = $("input[name='sizes']").val(); 
-	// 	console.log(sizeInput);
-	// 	event.preventDefault();
-	// });
-	$("#pizza-form").submit(function(event){
+	
+$("#pizza-form").submit(function(event){
 		event.preventDefault();
-		console.log("Hello from submit")
-	})
+		var sizeInput = $("input[name='sizes']:checked").val();
+		var userPizza = new Pizza(sizeInput);
+		console.log(userPizza.price); 
+	});
 });
