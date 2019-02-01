@@ -20,6 +20,12 @@ function Topping(name, price) {
 	this.price = price;
 }
 
+function getMeatToppings () {
+	$("#meat-select input:checkbox[name='meat-topping']:checked").each(function(topping){
+		console.log($(this).val());
+	});
+}
+
 
 
 
@@ -28,6 +34,7 @@ $(function(){
 $("#pizza-form").submit(function(event){
 		event.preventDefault();
 		var sizeInput = $("input[name='sizes']:checked").val();
+		var meatToppings = getMeatToppings();
 		var userPizza = new Pizza(sizeInput);
 		console.log(userPizza.price); 
 	});
