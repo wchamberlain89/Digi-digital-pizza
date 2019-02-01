@@ -1,3 +1,20 @@
+function Cart() {
+	this.pizzas = [];
+}
+
+Cart.prototype.addPizza = function(pizza) {
+	this.pizzas.push(pizza);
+}
+
+Cart.prototype.calculateTotal = function() {
+	var newTotal = 0
+	for (var i = 0; i < this.pizzas.length; i++) {
+		newTotal += this.pizzas[i].price; 
+	}
+	return newTotal;
+}
+
+
 function Pizza(size, meats, veggies) {
 	this.size = size;
 	this.meats = meats;
@@ -50,14 +67,19 @@ function showPrice (pizza) {
 	$("#price").text("$" + pizza.toFixed(2));
 }
 
+function showTotal (cart) {
+	$("#total").text("$" + cart)	
+}
+
 $(function(){
-	
+	var userCart = new Cart();
 	var userPizza = refreshPizza();
 	showPrice(userPizza.price);
 	
 $("#pizza-form").submit(function(event){
 		event.preventDefault();
-		userPizaa = refreshPizza();
+		userCart.addPizza(userPizza);
+		showTotal(userCart.calculateTotal());
 	});
 
 	$("#pizza-form").change(function(event){
