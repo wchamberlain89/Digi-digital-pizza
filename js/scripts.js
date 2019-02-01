@@ -37,16 +37,31 @@ function getVeggieToppings () {
 }
 
 
-
-
-$(function(){
-	
-$("#pizza-form").submit(function(event){
-		event.preventDefault();
+function refreshPizza () { 
 		var sizeInput = $("input[name='sizes']:checked").val();
 		var meatToppings = getMeatToppings();
 		var veggieToppings = getVeggieToppings();
 		var userPizza = new Pizza(sizeInput, meatToppings, veggieToppings);
-		console.log(userPizza.price); 
+		return userPizza;
+}
+
+
+function showPrice (pizza) {
+	$("#price").text("$" + pizza.toFixed(2));
+}
+
+$(function(){
+	
+	var userPizza = refreshPizza();
+	showPrice(userPizza.price);
+	
+$("#pizza-form").submit(function(event){
+		event.preventDefault();
+		userPizaa = refreshPizza();
+	});
+
+	$("#pizza-form").change(function(event){
+		userPizza = refreshPizza();
+		showPrice(userPizza.price);
 	});
 });
