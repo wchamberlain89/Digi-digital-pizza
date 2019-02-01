@@ -9,3 +9,7 @@ input[type='radio'] {
 form {
 	margin-bottom: 20px;
 }
+
+.pizza:focus { 
+	outline: none !important;
+} 

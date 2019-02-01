@@ -1,8 +1,15 @@
 function Cart() {
+	this.id = 0;
 	this.pizzas = [];
 }
 
+Cart.prototype.assignId = function(pizza) {
+	this.id += 1;
+	pizza.id = this.id;
+}
+
 Cart.prototype.addPizza = function(pizza) {
+	this.assignId(pizza);
 	this.pizzas.push(pizza);
 }
 
@@ -32,6 +39,36 @@ Pizza.prototype.getPrice = function() {
 	}
 }
 
+Pizza.prototype.createPizzaHTML = function() {
+	console.log(this.id);
+
+	var html = '<button class="btn pizza" data-toggle="collapse" data-target="#pizza' + this.id+ '">Pizza</button> \
+	<div class="collapse" id="pizza' + this.id + '"> \
+	<div class="card card-body"> \
+	<h4>Size : <span class="size"></span></h4> \
+	<h4>Sauce : <span class="sauce"></span></h4> \
+	<h4>Meat : </h4> \
+	<ul>'
+	
+	for (var i = 0; i < this.meats.length; i++) {
+		html += "<li>" + this.meats[i]; + "</li>";
+	}
+
+	html += '</ul> \
+	<h4>Veggies : </h4> \
+	<ul> '
+
+	for (var i = 0; i < this.veggies.length; i++) {
+		html += "<li>" + this.veggies[i]; + "</li>";
+	}
+
+	html += '</ul> \
+			</div> \
+		</div>'
+
+	$("#pizza-container").append(html);
+}
+
 function Topping(name, price) {
 	this.name = name;
 	this.price = price;
@@ -55,20 +92,19 @@ function getVeggieToppings () {
 
 
 function refreshPizza () { 
-		var sizeInput = $("input[name='sizes']:checked").val();
-		var meatToppings = getMeatToppings();
-		var veggieToppings = getVeggieToppings();
-		var userPizza = new Pizza(sizeInput, meatToppings, veggieToppings);
-		return userPizza;
+	var sizeInput = $("input[name='sizes']:checked").val();
+	var meatToppings = getMeatToppings();
+	var veggieToppings = getVeggieToppings();
+	var userPizza = new Pizza(sizeInput, meatToppings, veggieToppings);
+	return userPizza;
 }
-
 
 function showPrice (pizza) {
 	$("#price").text("$" + pizza.toFixed(2));
 }
 
 function showTotal (cart) {
-	$("#total").text("$" + cart)	
+	$("#total").text("$" + cart.toFixed(2));	
 }
 
 $(function(){
@@ -76,14 +112,19 @@ $(function(){
 	var userPizza = refreshPizza();
 	showPrice(userPizza.price);
 	
-$("#pizza-form").submit(function(event){
+	$("#pizza-form").submit(function(event){
 		event.preventDefault();
 		userCart.addPizza(userPizza);
+		userPizza.createPizzaHTML();
 		showTotal(userCart.calculateTotal());
 	});
 
-	$("#pizza-form").change(function(event){
+	$("#pizza-form").change(function(){
 		userPizza = refreshPizza();
 		showPrice(userPizza.price);
+	});
+
+	$(".pizza").mousedown(function(event){
+		event.preventDefault();
 	});
 });
