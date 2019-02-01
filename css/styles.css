@@ -1,9 +1,53 @@
+body {
+	background-color: #1F2C3D;
+}
+
 h1 {
 	text-align: center;
 }
 
 input[type='radio'] {
-	margin-right: 20px;
+	display:none;
+}
+
+.banner-bg {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 230px;
+	background-color: #2E3444;
+	padding-top: 20px;
+	padding-bottom: 20px; 
+}
+
+.logo-container {
+	padding: 0px;
+}
+
+.main-container {
+
+	background-color: #FFFDFF
+}
+
+#logo {
+	width: 100%
+}
+
+#size-select label {
+	display: inline-block;
+	background-color: #FFFDFF;
+	padding: 10px 20px;
+	font-family:Arial;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+#size-select label:hover {
+  background-color: #dfd;
+}
+
+#size-select input[type="radio"]:checked + label { 
+    background-color:#E3AC1B;
+    color: white;
 }
 
 form {

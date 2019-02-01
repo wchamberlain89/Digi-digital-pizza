@@ -22,8 +22,9 @@ Cart.prototype.calculateTotal = function() {
 }
 
 
-function Pizza(size, meats, veggies) {
+function Pizza(size, sauce, meats, veggies) {
 	this.size = size;
+	this.sauce = sauce;
 	this.meats = meats;
 	this.veggies = veggies;
 	this.price = this.getPrice();
@@ -45,8 +46,8 @@ Pizza.prototype.createPizzaHTML = function() {
 	var html = '<button class="btn pizza" data-toggle="collapse" data-target="#pizza' + this.id+ '">Pizza</button> \
 	<div class="collapse" id="pizza' + this.id + '"> \
 	<div class="card card-body"> \
-	<h4>Size : <span class="size"></span></h4> \
-	<h4>Sauce : <span class="sauce"></span></h4> \
+	<h4>Size : <span class="size">' + this.size + '</span></h4> \
+	<h4>Sauce : <span class="sauce">' + this.sauce + '</span></h4> \
 	<h4>Meat : </h4> \
 	<ul>'
 	
@@ -95,7 +96,8 @@ function refreshPizza () {
 	var sizeInput = $("input[name='sizes']:checked").val();
 	var meatToppings = getMeatToppings();
 	var veggieToppings = getVeggieToppings();
-	var userPizza = new Pizza(sizeInput, meatToppings, veggieToppings);
+	var sauce = $('input[name="sauce"]:checked').val();
+	var userPizza = new Pizza(sizeInput, sauce, meatToppings, veggieToppings);
 	return userPizza;
 }
 

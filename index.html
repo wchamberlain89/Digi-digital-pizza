@@ -10,22 +10,29 @@
 	<script type="text/javascript" src="js/scripts.js"></script>
 </head>
 <body>
-	<div class="container">
-		<h1>Digi's Digital Pizza</h1>
+	
+	<div class="banner-bg">
+		<div class="logo-container container">
+			<img id="logo" src="imgs/logo.jpg">
+		</div>
+	</div>
+	
+	
+	<div class="container main-container">
 
 
 		<form id='pizza-form'>
 
 			<fieldset id='size-select'>
 				<legend>Please Select A Size:</legend>	
-				<label for="sm"> Small </label>
 				<input type="radio" name="sizes" id='sm' value='sm' checked>
+				<label for="sm"> Small </label>
 
-				<label for="md"> Medium </label>
 				<input type="radio" name="sizes" id='md' value='md'>
+				<label for="md"> Medium </label>
 
-				<label for="lg"> Large </label>
 				<input type="radio" name="sizes" id='lg' value='lg'>
+				<label for="lg"> Large </label>
 			</fieldset>
 
 			<fieldset id='sauce-select'>		
