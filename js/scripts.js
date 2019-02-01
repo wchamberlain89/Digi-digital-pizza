@@ -15,6 +15,11 @@ Pizza.prototype.getPrice = function() {
 	}
 }
 
+function Topping(name, price) {
+	this.name = name;
+	this.price = price;
+}
+
 
 
 
