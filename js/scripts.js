@@ -43,12 +43,12 @@ Pizza.prototype.getPrice = function() {
 Pizza.prototype.createPizzaHTML = function() {
 	console.log(this.id);
 
-	var html = '<button class="btn pizza" data-toggle="collapse" data-target="#pizza' + this.id+ '">Pizza</button> \
+	var html = '<div class="cart-pizza"><button class="btn pizza" data-toggle="collapse" data-target="#pizza' + this.id+ '">Pizza</button> \
 	<div class="collapse" id="pizza' + this.id + '"> \
-	<div class="card card-body"> \
-	<h4>Size : <span class="size">' + this.size + '</span></h4> \
-	<h4>Sauce : <span class="sauce">' + this.sauce + '</span></h4> \
-	<h4>Meat : </h4> \
+	<div> \
+	<p>Size : <span class="size">' + this.size + '</span></p> \
+	<p>Sauce : <span class="sauce">' + this.sauce + '</span></p> \
+	<p>Meat : </p> \
 	<ul>'
 	
 	for (var i = 0; i < this.meats.length; i++) {
@@ -56,7 +56,7 @@ Pizza.prototype.createPizzaHTML = function() {
 	}
 
 	html += '</ul> \
-	<h4>Veggies : </h4> \
+	<p>Veggies : </p> \
 	<ul> '
 
 	for (var i = 0; i < this.veggies.length; i++) {
@@ -65,7 +65,7 @@ Pizza.prototype.createPizzaHTML = function() {
 
 	html += '</ul> \
 			</div> \
-		</div>'
+		</div></div>'
 
 	$("#pizza-container").append(html);
 }

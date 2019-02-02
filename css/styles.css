@@ -6,7 +6,13 @@ h1 {
 	text-align: center;
 }
 
-input[type='radio'] {
+h3 {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+input[type='radio'], input[type='checkbox'] {
 	display:none;
 }
 
@@ -24,15 +30,61 @@ input[type='radio'] {
 }
 
 .main-container {
-
-	background-color: #FFFDFF
+	background-color: #FFFDFF;
+	display: inline-block;
+	margin-bottom: 50px;
 }
 
 #logo {
 	width: 100%
 }
 
-#size-select label {
+#pizza-submit {
+	float:left;
+}
+
+#cart-container {
+	float: right;
+	color: #333333;
+	background-color: #FFFDFF;
+	min-height: 600px;
+	margin-right: 20px;
+	position: relative;
+	padding-bottom: 50px;
+}
+
+#cart-container h3 {
+	position: absolute;
+	bottom: 0;
+	left: 50px;
+	margin-top: 20px;
+}
+
+#veggie-select {
+	margin-bottom: 20px;
+}
+
+.pizza {
+	margin: auto;
+	color: #333333;
+	display: block;
+}
+
+p {
+	margin-bottom: 2px;
+	font-size: .85em;
+}
+
+li {
+	list-style-type: none;
+}
+
+.cart-pizza:hover {
+	border-bottom: 2px solid #2E3444;	
+	transition: all ease-in-out .1s;
+}
+
+label {
 	display: inline-block;
 	background-color: #FFFDFF;
 	padding: 10px 20px;
@@ -41,11 +93,11 @@ input[type='radio'] {
   border-radius: 2px;
 }
 
-#size-select label:hover {
+label:hover {
   background-color: #dfd;
 }
 
-#size-select input[type="radio"]:checked + label { 
+input:checked + label { 
     background-color:#E3AC1B;
     color: white;
 }
