@@ -11,14 +11,21 @@ h3 {
 	margin-left: 20px;
 }
 
+.navbar {
+	margin-bottom: 5px;
+	background-color: #2E3444;
+}
+
+.navbar-brand {
+	text-align: center;
+	color: white;
+}
 
 input[type='radio'], input[type='checkbox'] {
 	display:none;
 }
 
 .banner-bg {
-	margin-top: 20px;
-	margin-bottom: 20px;
 	height: 230px;
 	background-color: #2E3444;
 	padding-top: 20px;
