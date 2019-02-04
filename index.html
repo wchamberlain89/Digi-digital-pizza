@@ -16,106 +16,61 @@
 			<img id="logo" src="imgs/logo.jpg">
 		</div>
 	</div>
-	<nav class="navbar navbar-expand-lg navbar-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<!-- <nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="#">Home</a>
 	</nav>
+-->
+<div class="fluid-container">
+	
+	<div class="main-container col-md-5 offset-md-2">
 
-	<div class="fluid-container">
-		
-		<div class="main-container col-md-5 offset-md-2">
+		<form id='pizza-form'>
 
-			<form id='pizza-form'>
+			<fieldset id='size-select'>
+				<legend>What size pizza would you like?</legend>	
+				<input type="radio" name="sizes" id='sm' value='sm' checked>
+				<label for="sm"> Small 12"</label>
 
-				<fieldset id='size-select'>
-					<legend>What size pizza would you like?</legend>	
-					<input type="radio" name="sizes" id='sm' value='sm' checked>
-					<label for="sm"> Small 12"</label>
+				<input type="radio" name="sizes" id='md' value='md'>
+				<label for="md"> Medium 14"</label>
 
-					<input type="radio" name="sizes" id='md' value='md'>
-					<label for="md"> Medium 14"</label>
+				<input type="radio" name="sizes" id='lg' value='lg'>
+				<label for="lg"> Large 16"</label>
+			</fieldset>
 
-					<input type="radio" name="sizes" id='lg' value='lg'>
-					<label for="lg"> Large 16"</label>
-				</fieldset>
+			<fieldset id='sauce-select'>		
+				<legend>Please Select a Sauce</legend>	
+			</fieldset>
 
-				<fieldset id='sauce-select'>		
-					<legend>Please Select a Sauce</legend>
-					<input type="radio" name="sauce" id='red' value='red' checked>
-					<label for="red"> Red Sauce </label>
-					<input type="radio" name="sauce" id='white' value='white'>
-					<label for="white"> White Sauce </label>
-					<input type="radio" name="sauce" id='pesto' value='pesto'>	
-					<label for="pesto"> Pesto Sauce </label>
-				</fieldset>
+			<fieldset id='meat-select'>
+				<legend>Select any meats</legend>
+			</fieldset>
 
-				<fieldset id='meat-select'>
+			<fieldset id='veggie-select'>	
+				<legend>Select any vegetables</legend>
+			</fieldset>
 
-					<legend>Select any meats</legend>
-
-					<input type="checkbox" id="pepperoni" class="meat" name="meat-topping" value="pepperoni">
-					<label for="pepperoni">Pepperoni</label>
-
-					<input type="checkbox" id="sausage" class="meat" name="meat-topping" value="sausage">
-					<label for="sausage">Sausage</label>
-
-					<input type="checkbox" id="ham" class="meat" name="meat-topping" value="ham">
-					<label for="ham">Ham</label>
-
-					<input type="checkbox" id="bacon" class="meat" name="meat-topping" value="bacon">
-					<label for="bacon">Bacon</label>
-
-					<input type="checkbox" id="chicken" class="meat" name="meat-topping" value="chicken">
-					<label for="chicken">Chicken</label>
-
-
-				</fieldset>
-
-				<fieldset id='veggie-select'>	
-
-					<legend>Select any vegetables</legend>
-
-					<input type="checkbox" id="onions" class="meat" name="veggie-topping" value="onions">
-					<label for="onions">Onions</label>
-
-					<input type="checkbox" id="mushrooms" class="meat" name="veggie-topping" value="mushrooms">
-					<label for="mushrooms">Mushrooms</label>
-
-					<input type="checkbox" id="peppers" class="meat" name="veggie-topping" value="peppers">
-					<label for="peppers">Green peppers</label>
-
-					<input type="checkbox" id="pineapple" class="meat" name="veggie-topping" value="pineapple">
-					<label for="pineapple">Pineapple</label>
-
-					<input type="checkbox" id="garlic" class="meat" name="veggie-topping" value="garlic">
-					<label for="garlic">Garlic</label>
-
-					<input type="checkbox" id="basil" class="meat" name="veggie-topping" value="basil">
-					<label for="basil">Basil</label>
-
-
-				</fieldset>
-
-				<div>
-					<button type="submit" id="pizza-submit" class="btn btn-success">Add Your Pizza</button>
-				</div>
-
-			</form>
-
-
-			<div class="price-container">
-				<h3>Pizza Total : <span id="price"></span></h3>
+			<div>
+				<button type="submit" id="pizza-submit" class="btn btn-success">Add Your Pizza</button>
 			</div>
 
-		</div>
+		</form>
 
-		<div id="cart-container" class="col-md-3 offset-md-1">
-			<div id="pizza-container">
-			</div>
-			<h3 class="row">Your Cart Total : <span id="total"></span></h3>
-		</div>
 
+		<div class="price-container">
+			<h3>Pizza Total : <span id="price"></span></h3>
+		</div>
 
 	</div>
+
+	<div id="cart-container" class="col-md-3 offset-md-1">
+		<div id="pizza-container">
+		</div>
+		<h3 class="row">Your Cart Total : <span id="total"></span></h3>
+	</div>
+
+
+</div>
 </div>
 </body>
 </html>

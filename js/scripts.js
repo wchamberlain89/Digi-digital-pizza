@@ -70,14 +70,89 @@ Pizza.prototype.createPizzaHTML = function() {
 	$("#pizza-container").append(html);
 }
 
-function Topping(name, price) {
+function Topping(name, type, price) {
 	this.name = name;
+	this.type = type
 	this.price = price;
+}
+
+function Menu() {
+	this.toppings = [];
+}
+
+Menu.prototype.addTopping = function(topping) {
+	this.toppings.push(topping);
+}
+
+Menu.prototype.addSauce = function(sauceName) {
+	var newSauce = new Topping(sauceName, "sauce", 0);
+	this.addTopping(newSauce);
+}
+
+Menu.prototype.addAllSauces = function(sauceNameArray) {
+	for(var i = 0; i < sauceNameArray.length; i++) {
+		this.addSauce(sauceNameArray[i]);
+	}
+}
+
+Menu.prototype.displaySauce = function(sauce) {
+	var html = "<input type='radio' name='sauce' id='" + sauce.name + "' value='" + sauce.name + "'> \
+	<label for='" + sauce.name + "'> " + sauce.name + "</label>";
+
+	return html;
+}
+
+Menu.prototype.addMeat = function(meatName) {
+	var newMeat = new Topping(meatName, "meat", 2.00);
+	this.addTopping(newMeat);
+}
+
+Menu.prototype.addAllMeats = function(meatNameArray) {
+	for(var i = 0; i < meatNameArray.length; i++) {
+		this.addMeat(meatNameArray[i]);
+	}
+}
+
+Menu.prototype.displayMeat = function(meat) {
+	var html = "<input type='checkbox' name='meat' id='" + meat.name + "' value='" + meat.name + "'> \
+	<label for='" + meat.name + "'> " + meat.name + "</label>";
+
+	return html;
+}
+
+Menu.prototype.addVeggie = function(veggieName) {
+	var newVeggie = new Topping(veggieName, "veggie", 2.00);
+	this.addTopping(newVeggie);
+}
+
+Menu.prototype.addAllVeggies = function(veggieNameArray) {
+	for(var i = 0; i < veggieNameArray.length; i++) {
+		this.addVeggie(veggieNameArray[i]);
+	}
+}
+
+Menu.prototype.displayVeggie = function(veggie) {
+	var html = "<input type='checkbox' name='veggie' id='" + veggie.name + "' value='" + veggie.name + "'> \
+	<label for='" + veggie.name + "'> " + veggie.name + "</label>";
+
+	return html;
+}
+
+Menu.prototype.showToppings = function() {
+	for(var i = 0; i < this.toppings.length; i++) {
+		if(this.toppings[i].type === 'sauce') {
+			$("#sauce-select").append(this.displaySauce(this.toppings[i]));
+		} else if(this.toppings[i].type === 'meat') {
+			$("#meat-select").append(this.displayMeat(this.toppings[i]));
+		} else if(this.toppings[i].type === 'veggie') {
+			$("#veggie-select").append(this.displayVeggie(this.toppings[i]));
+		}
+	}
 }
 
 function getMeatToppings () {
 	var toppings = [];
-	$("#meat-select input:checkbox[name='meat-topping']:checked").each(function(topping){
+	$("#meat-select input:checkbox[name='meat']:checked").each(function(topping){
 		toppings.push($(this).val());
 	});
 	return toppings;
@@ -85,12 +160,11 @@ function getMeatToppings () {
 
 function getVeggieToppings () {
 	var toppings = [];
-	$("#veggie-select input:checkbox[name='veggie-topping']:checked").each(function(topping){
+	$("#veggie-select input:checkbox[name='veggie']:checked").each(function(topping){
 		toppings.push($(this).val());
 	});
 	return toppings;
 }
-
 
 function refreshPizza () { 
 	var sizeInput = $("input[name='sizes']:checked").val();
@@ -113,7 +187,15 @@ $(function(){
 	var userCart = new Cart();
 	var userPizza = refreshPizza();
 	showPrice(userPizza.price);
-	
+	var userMenu = new Menu();
+	var sauces = ["Red Sauce", "White Sauce", "BBQ Sauce"];
+	var meats = ["Pepperoni" , "Sausage", "Ham", "Bacon", "Chicken"];
+	var veggies = ["Onions", "Red Peppers", "Green Peppers", "Mushrooms", "Garlic", "Basil", "Pineapple"];
+	userMenu.addAllVeggies(veggies);
+	userMenu.addAllMeats(meats);
+	userMenu.addAllSauces(sauces);
+	userMenu.showToppings();
+
 	$("#pizza-form").submit(function(event){
 		event.preventDefault();
 		userCart.addPizza(userPizza);
