@@ -22,18 +22,18 @@ Contact Ward at wchamberlain89 on github
 Developed using Jquery and Bootstrap
 
 ## Specs -
-It should display a price based on a selected pizza size - 
-  input from form = sm,md,lg
-  expected output = $10-$12-$14
+It should display a price based on a selected pizza size -  
+  input from form = sm,md,lg . 
+  expected output = $10-$12-$14 . 
 
-It should display a price based on size and toppings selected -
-  input from form - sm pizza with pepperoni and olives
-  expected output - $12($10 for size, $1.50 for meat topping, $1.00 for veggie topping)
+It should display a price based on size and toppings selected -  
+  input from form - sm pizza with pepperoni and olives . 
+  expected output - $12($10 for size, $1.50 for meat topping, $1.00 for veggie topping) . 
 
-It should allow user to view pizza after adding to cart and displaying cost
-  input - add pizza to cart
-  output - display pizza in cart section
+It should allow user to view pizza after adding to cart and displaying cost . 
+  input - add pizza to cart . 
+  output - display pizza in cart section . 
   
-It should allow user to add multiple pizza's into cart and also display cart total
-  input - add $10 pizza and $15 pizza
-  output - 2 pizza's viewable in cart and cart price total displaying $25
+It should allow user to add multiple pizza's into cart and also display cart total . 
+  input - add $10 pizza and $15 pizza . 
+  output - 2 pizza's viewable in cart and cart price total displaying $25 . 
